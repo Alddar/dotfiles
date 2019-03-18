@@ -1,0 +1,19 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  ignoreempty: false
+  keepdot: false
+  link_by_default: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
+profiles:
+  hammond:
+    dotfiles:
+    - f_zshrc
