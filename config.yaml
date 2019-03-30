@@ -10,6 +10,9 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  d_i3:
+    dst: ~/.config/i3
+    src: config/i3
   f_zshrc:
     dst: ~/.zshrc
     src: zshrc
@@ -17,3 +20,4 @@ profiles:
   hammond:
     dotfiles:
     - f_zshrc
+    - d_i3
