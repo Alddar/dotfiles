@@ -15,9 +15,11 @@ antigen bundle sorin-ionescu/prezto modules/history
 antigen bundle zdharma/fast-syntax-highlighting 
 antigen bundle sorin-ionescu/prezto modules/completion
 antigen bundle sorin-ionescu/prezto modules/directory
-antigen bundle sorin-ionescu/prezto modules/terminal
 antigen bundle hlissner/zsh-autopair
+antigen bundle sorin-ionescu/prezto modules/terminal
 antigen bundle zdharma/history-search-multi-word
+antigen bundle sorin-ionescu/prezto modules/zsh-history-substring-search
+antigen bundle marzocchi/zsh-notify
 
 #antigen theme skwp
 
@@ -39,6 +41,7 @@ alias rg='rg --hidden --follow --smart-case 2>/dev/null'
 alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --compress --partial'
 alias sudo='sudo -E '
+alias ssh='kitty +kitten ssh'
 
 alias ls="exa --git --group-directories-first"
 alias ll="ls -l"
@@ -50,6 +53,9 @@ alias l="ll"
 
 alias pjv='cd ~/School/BI-PJV/FirstEffort'
 alias pizza='cd ~/Work/imatic/pizza360'
+alias bw='cd ~/Personal/blackwolves-web'
+alias im='cd ~/Work/imatic'
+alias ct='cd ~/Work/imatic/CT'
 
 h=()
 if [[ -r ~/.ssh/config ]]; then
@@ -104,10 +110,12 @@ promptinit
 prompt skwp 
 
 alias clip='xsel --clipboard'
-alias dotdrop=~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
+alias dotdrop='~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="red"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="cornsilk1"
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="grey27"
+eval `keychain -q --eval imatic imatic-personal ct gitlab github zensys`
+
+zstyle ':notify:*' error-icon "https://media3.giphy.com/media/10ECejNtM1GyRy/200_s.gif"
+zstyle ':notify:*' error-title "wow such #fail"
+zstyle ':notify:*' success-icon "https://s-media-cache-ak0.pinimg.com/564x/b5/5a/18/b55a1805f5650495a74202279036ecd2.jpg"
+zstyle ':notify:*' success-title "very #success. wow"
+

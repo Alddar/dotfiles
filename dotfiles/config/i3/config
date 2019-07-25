@@ -102,16 +102,16 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 exec i3finder -a msg -i 'workspace $ws1'
-bindsym $mod+2 exec i3finder -a msg -i 'workspace $ws2'
-bindsym $mod+3 exec i3finder -a msg -i 'workspace $ws3'
-bindsym $mod+4 exec i3finder -a msg -i 'workspace $ws4'
-bindsym $mod+5 exec i3finder -a msg -i 'workspace $ws5'
-bindsym $mod+6 exec i3finder -a msg -i 'workspace $ws6'
-bindsym $mod+7 exec i3finder -a msg -i 'workspace $ws7'
-bindsym $mod+8 exec i3finder -a msg -i 'workspace $ws8'
-bindsym $mod+9 exec i3finder -a msg -i 'workspace $ws9'
-bindsym $mod+0 exec i3finder -a msg -i 'workspace $ws10'
+bindsym $mod+1 exec i3finder -a msg -i "workspace $ws1"
+bindsym $mod+2 exec i3finder -a msg -i "workspace $ws2"
+bindsym $mod+3 exec i3finder -a msg -i "workspace $ws3"
+bindsym $mod+4 exec i3finder -a msg -i "workspace $ws4"
+bindsym $mod+5 exec i3finder -a msg -i "workspace $ws5"
+bindsym $mod+6 exec i3finder -a msg -i "workspace $ws6"
+bindsym $mod+7 exec i3finder -a msg -i "workspace $ws7"
+bindsym $mod+8 exec i3finder -a msg -i "workspace $ws8"
+bindsym $mod+9 exec i3finder -a msg -i "workspace $ws9"
+bindsym $mod+0 exec i3finder -a msg -i "workspace $ws10"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -128,7 +128,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-bindsym $mod+Tab exec i3finder -a back
+bindsym $mod+Tab exec i3finder -a back 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -188,10 +188,10 @@ mode "launch" {
 bindsym $mod+x mode "launch"
 
 # Focus
-bindsym $mod+Ctrl+f [class="Firefox"] focus
-bindsym $mod+Ctrl+s [class="Spotify"] focus
-bindsym $mod+Ctrl+t [class="Thunderbird"] focus
-bindsym $mod+Ctrl+p [class="jetbrains-phpstorm"] focus
+bindsym $mod+Ctrl+f exec i3finder -a msg -i "[class=\"Firefox\"] focus"
+bindsym $mod+Ctrl+s exec i3finder -a msg -i "[class=\"Spotify\"] focus"
+bindsym $mod+Ctrl+t exec i3finder -a msg -i "[class=\"Thunderbird\"] focus"
+bindsym $mod+Ctrl+p exec i3finder -a msg -i "[class=\"jetbrains-phpstorm\"] focus"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -318,6 +318,7 @@ exec_always xss-lock -- i3lock
 
 assign [class="^Firefox$"] 1
 assign [class="jetbrains-phpstorm"] 3
+assign [class="Spotify"] 6
 
 for_window [class="[pP]avucontrol"] floating enable
 for_window [class="[Gg]alculator"] floating enable
